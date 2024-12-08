@@ -295,88 +295,88 @@ cd /path/to/docker-compose-directory
 
 # prometheus
 
-  
-  root@mail:/home/sangbinlee9/prometheus# docker ps
-  CONTAINER ID   IMAGE                                                COMMAND                  CREATED       STATUS                 PORTS                                                                                                                                                                                                                       NAMES
-  d9b85618353d   grafana/grafana:latest                               "/run.sh"                2 hours ago   Up 2 hours             0.0.0.0:3000->3000/tcp, :::3000->3000/tcp                                                                                                                                                                                   grafana
-  4363a0fe6c56   ghcr.io/docker-mailserver/docker-mailserver:latest   "/usr/bin/dumb-init …"   3 weeks ago   Up 4 hours (healthy)   0.0.0.0:25->25/tcp, :::25->25/tcp, 0.0.0.0:143->143/tcp, :::143->143/tcp, 0.0.0.0:465->465/tcp, :::465->465/tcp, 0.0.0.0:587->587/tcp, :::587->587/tcp, 110/tcp, 995/tcp, 0.0.0.0:993->993/tcp, :::993->993/tcp, 4190/tcp   mailserver
-  root@mail:/home/sangbinlee9/prometheus# docker run --name prometheus -d -p 192.168.0.26:9090:9090 prom/prometheus
-  2b1deef1f91cb5f255bc96532ffe9da7668c3f4758a3134eb335732a9d2b966a
-  root@mail:/home/sangbinlee9/prometheus#
-
+      
+      root@mail:/home/sangbinlee9/prometheus# docker ps
+      CONTAINER ID   IMAGE                                                COMMAND                  CREATED       STATUS                 PORTS                                                                                                                                                                                                                       NAMES
+      d9b85618353d   grafana/grafana:latest                               "/run.sh"                2 hours ago   Up 2 hours             0.0.0.0:3000->3000/tcp, :::3000->3000/tcp                                                                                                                                                                                   grafana
+      4363a0fe6c56   ghcr.io/docker-mailserver/docker-mailserver:latest   "/usr/bin/dumb-init …"   3 weeks ago   Up 4 hours (healthy)   0.0.0.0:25->25/tcp, :::25->25/tcp, 0.0.0.0:143->143/tcp, :::143->143/tcp, 0.0.0.0:465->465/tcp, :::465->465/tcp, 0.0.0.0:587->587/tcp, :::587->587/tcp, 110/tcp, 995/tcp, 0.0.0.0:993->993/tcp, :::993->993/tcp, 4190/tcp   mailserver
+      root@mail:/home/sangbinlee9/prometheus# docker run --name prometheus -d -p 192.168.0.26:9090:9090 prom/prometheus
+      2b1deef1f91cb5f255bc96532ffe9da7668c3f4758a3134eb335732a9d2b966a
+      root@mail:/home/sangbinlee9/prometheus#
+    
 
 
 
 # prometheus
 
-  
-  root@dev9-ubuntu24-1:/home/sangbinlee9/compose# cd /etc/nginx/sites-available/
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available# ll
-  total 32
-  drwxr-xr-x 2 root root 4096 Dec  8 11:57 ./
-  drwxr-xr-x 8 root root 4096 Dec  8 11:53 ../
-  -rw-r--r-- 1 root root  899 Dec  7 21:53 api.dev9.store
-  -rw-r--r-- 1 root root 2412 Dec  1  2023 default
-  -rw-r--r-- 1 root root 1171 Nov 25 04:52 dev9.store
-  -rw-r--r-- 1 root root  922 Dec  8 11:57 grafana.dev9.store
-  -rw-r--r-- 1 root root  817 Nov 25 05:29 jenkins.dev9.store
-  -rw-r--r-- 1 root root  902 Dec  7 22:12 vue3.dev9.store
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available# cp grafana.dev9.store prometheus.dev9.store
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available# vi prometheus.dev9.store
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available# nginx -t
-  nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-  nginx: configuration file /etc/nginx/nginx.conf test is successful
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available# ln -s /etc/nginx/sites-available/prometheus.dev9.store /etc/nginx/sites-enabled/
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available# certbot --nginx -d prometheus.dev9.store
-  Saving debug log to /var/log/letsencrypt/letsencrypt.log
-  Requesting a certificate for prometheus.dev9.store
-  
-  Successfully received certificate.
-  Certificate is saved at: /etc/letsencrypt/live/prometheus.dev9.store/fullchain.pem
-  Key is saved at:         /etc/letsencrypt/live/prometheus.dev9.store/privkey.pem
-  This certificate expires on 2025-03-08.
-  These files will be updated when the certificate renews.
-  Certbot has set up a scheduled task to automatically renew this certificate in the background.
-  
-  Deploying certificate
-  Successfully deployed certificate for prometheus.dev9.store to /etc/nginx/sites-enabled/prometheus.dev9.store
-  Congratulations! You have successfully enabled HTTPS on https://prometheus.dev9.store
-  
-  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  If you like Certbot, please consider supporting our work by:
-   * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
-   * Donating to EFF:                    https://eff.org/donate-le
-  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available# vi prometheus.dev9.store
-  root@dev9-ubuntu24-1:/etc/nginx/sites-available#
+    
+    root@dev9-ubuntu24-1:/home/sangbinlee9/compose# cd /etc/nginx/sites-available/
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# ll
+    total 32
+    drwxr-xr-x 2 root root 4096 Dec  8 11:57 ./
+    drwxr-xr-x 8 root root 4096 Dec  8 11:53 ../
+    -rw-r--r-- 1 root root  899 Dec  7 21:53 api.dev9.store
+    -rw-r--r-- 1 root root 2412 Dec  1  2023 default
+    -rw-r--r-- 1 root root 1171 Nov 25 04:52 dev9.store
+    -rw-r--r-- 1 root root  922 Dec  8 11:57 grafana.dev9.store
+    -rw-r--r-- 1 root root  817 Nov 25 05:29 jenkins.dev9.store
+    -rw-r--r-- 1 root root  902 Dec  7 22:12 vue3.dev9.store
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# cp grafana.dev9.store prometheus.dev9.store
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# vi prometheus.dev9.store
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# nginx -t
+    nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+    nginx: configuration file /etc/nginx/nginx.conf test is successful
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# ln -s /etc/nginx/sites-available/prometheus.dev9.store /etc/nginx/sites-enabled/
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# certbot --nginx -d prometheus.dev9.store
+    Saving debug log to /var/log/letsencrypt/letsencrypt.log
+    Requesting a certificate for prometheus.dev9.store
+    
+    Successfully received certificate.
+    Certificate is saved at: /etc/letsencrypt/live/prometheus.dev9.store/fullchain.pem
+    Key is saved at:         /etc/letsencrypt/live/prometheus.dev9.store/privkey.pem
+    This certificate expires on 2025-03-08.
+    These files will be updated when the certificate renews.
+    Certbot has set up a scheduled task to automatically renew this certificate in the background.
+    
+    Deploying certificate
+    Successfully deployed certificate for prometheus.dev9.store to /etc/nginx/sites-enabled/prometheus.dev9.store
+    Congratulations! You have successfully enabled HTTPS on https://prometheus.dev9.store
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    If you like Certbot, please consider supporting our work by:
+     * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+     * Donating to EFF:                    https://eff.org/donate-le
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# vi prometheus.dev9.store
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available#
 
 # 
 
 ![image](https://github.com/user-attachments/assets/2e9d11cb-c386-4240-b2ef-f8ba09816439)
 
 # 
-
-root@dev9-ubuntu24-1:/etc/nginx/sites-available# systemctl status nginx
-● nginx.service - A high performance web server and a reverse proxy server
-     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
-     Active: active (running) since Sun 2024-12-08 11:57:24 KST; 7min ago
-       Docs: man:nginx(8)
-    Process: 3506 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
-    Process: 3508 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
-   Main PID: 3509 (nginx)
-      Tasks: 5 (limit: 18955)
-     Memory: 6.6M (peak: 15.0M)
-        CPU: 370ms
-     CGroup: /system.slice/nginx.service
-             ├─3509 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
-             ├─3510 "nginx: worker process"
-             ├─3511 "nginx: worker process"
-             ├─3512 "nginx: worker process"
-             └─3513 "nginx: worker process"
-
-Dec 08 11:57:24 dev9-ubuntu24-1 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
-Dec 08 11:57:24 dev9-ubuntu24-1 systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
-root@dev9-ubuntu24-1:/etc/nginx/sites-available#
+    
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available# systemctl status nginx
+    ● nginx.service - A high performance web server and a reverse proxy server
+         Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+         Active: active (running) since Sun 2024-12-08 11:57:24 KST; 7min ago
+           Docs: man:nginx(8)
+        Process: 3506 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+        Process: 3508 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+       Main PID: 3509 (nginx)
+          Tasks: 5 (limit: 18955)
+         Memory: 6.6M (peak: 15.0M)
+            CPU: 370ms
+         CGroup: /system.slice/nginx.service
+                 ├─3509 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+                 ├─3510 "nginx: worker process"
+                 ├─3511 "nginx: worker process"
+                 ├─3512 "nginx: worker process"
+                 └─3513 "nginx: worker process"
+    
+    Dec 08 11:57:24 dev9-ubuntu24-1 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+    Dec 08 11:57:24 dev9-ubuntu24-1 systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+    root@dev9-ubuntu24-1:/etc/nginx/sites-available#
 
 
 # 
