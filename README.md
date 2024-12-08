@@ -16,19 +16,21 @@ https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/
 cd /path/to/docker-compose-directory
 
 # now create the docker-compose.yaml file
-touch docker-compose.yaml
+  touch docker-compose.yaml
   
-  services:
-    grafana:
-      image: grafana/grafana-enterprise
-      container_name: grafana
-      restart: unless-stopped
-      ports:
-        - '3000:3000'
-      volumes:
-        - grafana-storage:/var/lib/grafana
-  volumes:
-    grafana-storage: {}
+    services:
+      grafana:
+        image: grafana/grafana-enterprise
+        container_name: grafana
+        restart: unless-stopped
+        ports:
+          - '3000:3000'
+        volumes:
+          - grafana-storage:/var/lib/grafana
+    volumes:
+      grafana-storage: {}
+
+    
 # docker compose up -d
 
 
