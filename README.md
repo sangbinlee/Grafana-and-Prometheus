@@ -133,7 +133,17 @@ touch docker-compose.yaml
 
 
 
-# 
+# proxy_pass http://localhost:3000;  -> proxy_pass http://192.168.0.26:3000;
+
+
+![image](https://github.com/user-attachments/assets/00c59c2d-3ab8-4f02-b549-912cd739b2f8)
+
+
+
+
+
+
+
 
 
 # 
